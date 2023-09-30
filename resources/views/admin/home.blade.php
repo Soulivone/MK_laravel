@@ -6,7 +6,7 @@
             border: 0;
             background: black;
             box-shadow: 0 20px 27px 0 rgba(0,0,0,.05);
-            border-radius: 1rem;
+            border-radius: 10px;
         }
     </style>
 @endsection
