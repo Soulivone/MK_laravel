@@ -55,7 +55,7 @@
                     <aside class="col-md-2 fixed-start p-0 d-none d-md-block bg-white"
                         style="height: 100vh; border-right: 1px solid #c7c8c9">
                         <div class="sidebar-sticky">
-                            <div class="sidenav-header px-4 py-5">
+                            <div class="sidenav-header px-4 pt-4 pb-5">
                                 <a class="navbar-brand text-wrap" href="{{ route('admin.home') }}">
                                     <h4 class="font-weight-bold m-0 fw-bold">Admin MK SHOP</h4>
                                 </a>
