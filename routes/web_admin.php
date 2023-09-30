@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Auth\LoginController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,4 +36,12 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::get('/admin/admin/edit/{id}', [AdminController::class, 'edit'])->name('admin.admin.edit');
     Route::put('/admin/admin/update/{id}', [AdminController::class, 'update'])->name('admin.admin.update');
     Route::delete('/admin/admin/delete/{id}', [AdminController::class, 'destroy'])->name('admin.admin.delete');
+
+    // User Mangament
+    Route::get('/admin/user', [UserController::class, 'index'])->name('admin.user.index');
+    Route::get('/admin/user/create', [UserController::class, 'create'])->name('admin.user.create');
+    Route::post('/admin/user/store', [UserController::class, 'store'])->name('admin.user.store');
+    Route::get('/admin/user/edit/{id}', [UserController::class, 'edit'])->name('admin.user.edit');
+    Route::put('/admin/user/update/{id}', [UserController::class, 'update'])->name('admin.user.update');
+    Route::delete('/admin/user/delete/{id}', [UserController::class, 'destroy'])->name('admin.user.delete');
 });
