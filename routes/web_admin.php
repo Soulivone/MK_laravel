@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,4 +27,12 @@ Route::group([], function () {
 
 Route::middleware(['auth:admin'])->group(function () {
     Route::get('/admin/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin.home');
+
+    // Admin Mangament
+    Route::get('/admin/admin', [AdminController::class, 'index'])->name('admin.admin.index');
+    Route::get('/admin/admin/create', [AdminController::class, 'create'])->name('admin.admin.create');
+    Route::post('/admin/admin/store', [AdminController::class, 'store'])->name('admin.admin.store');
+    Route::get('/admin/admin/edit/{id}', [AdminController::class, 'edit'])->name('admin.admin.edit');
+    Route::put('/admin/admin/update/{id}', [AdminController::class, 'update'])->name('admin.admin.update');
+    Route::delete('/admin/admin/delete/{id}', [AdminController::class, 'destroy'])->name('admin.admin.delete');
 });
