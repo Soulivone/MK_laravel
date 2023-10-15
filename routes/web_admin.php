@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -62,4 +63,8 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::get('/admin/product/edit/{id}', [ProductController::class, 'edit'])->name('admin.product.edit');
     Route::put('/admin/product/update/{id}', [ProductController::class, 'update'])->name('admin.product.update');
     Route::delete('/admin/product/delete/{id}', [ProductController::class, 'destroy'])->name('admin.product.delete');
+
+    // Order Mangament
+    Route::get('/admin/order', [OrderController::class, 'index'])->name('admin.order.index');
+    Route::get('/admin/order/show/{id}', [OrderController::class, 'show'])->name('admin.order.show');
 });
