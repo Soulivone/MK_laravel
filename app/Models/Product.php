@@ -6,14 +6,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Product extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = 'categories';
+    protected $table = 'products';
 
     protected $fillable = [
-        'category_name'
+        'name',
+        'description',
+        'price',
+        'quantity',
+        'quantity_sale',
+        'image'
     ];
 
     protected $dates = [
@@ -21,8 +26,9 @@ class Category extends Model
         'updated_at'
     ];
 
-    public function Products()
+    public function Category()
     {
-        return $this->hasMany(Product::class);
+        return $this->belongsTo(Category::class);
     }
+
 }
