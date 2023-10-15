@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
@@ -44,4 +45,12 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::get('/admin/user/edit/{id}', [UserController::class, 'edit'])->name('admin.user.edit');
     Route::put('/admin/user/update/{id}', [UserController::class, 'update'])->name('admin.user.update');
     Route::delete('/admin/user/delete/{id}', [UserController::class, 'destroy'])->name('admin.user.delete');
+
+    // Category Mangament
+    Route::get('/admin/category', [CategoryController::class, 'index'])->name('admin.category.index');
+    Route::get('/admin/category/create', [CategoryController::class, 'create'])->name('admin.category.create');
+    Route::post('/admin/category/store', [CategoryController::class, 'store'])->name('admin.category.store');
+    Route::get('/admin/category/edit/{id}', [CategoryController::class, 'edit'])->name('admin.category.edit');
+    Route::put('/admin/category/update/{id}', [CategoryController::class, 'update'])->name('admin.category.update');
+    Route::delete('/admin/category/delete/{id}', [CategoryController::class, 'destroy'])->name('admin.category.delete');
 });
